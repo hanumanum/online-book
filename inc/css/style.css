@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  margin: 0px;
+}
+p {
+  font-size: 0.8em;
+}
+#book {
+  margin: auto;
+  display: block;
+  overflow: unset !important;
+  box-shadow: 0px 0px 6px -2px black;
+}
+.new-page {
+  display: grid;
+  grid-column-gap: 10px;
+  background: white !important;
+}
+.new-page > div {
+  padding: 35px;
+}
+
