@@ -1,28 +1,73 @@
 * {
   box-sizing: border-box;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 body {
   overflow: hidden;
+}
+p {
+  font-size: 0.8em;
+}
+
+#root {
   display: grid;
   place-items: center;
   height: 100vh;
   margin: 0px;
 }
-p {
-  font-size: 0.8em;
-}
+
 #book {
   margin: auto;
   display: block;
   overflow: unset !important;
   box-shadow: 0px 0px 6px -2px black;
+  background: white !important;
+  backface-visibility: hidden;
+}
+#book .odd {
+  background-image: -webkit-linear-gradient(left, #fff 95%, #ddd 100%);
+  background-image: -moz-linear-gradient(left, #fff 95%, #ddd 100%);
+  background-image: -o-linear-gradient(left, #fff 95%, #ddd 100%);
+  background-image: -ms-linear-gradient(left, #fff 95%, #ddd 100%);
+}
+
+#book .even {
+  background-image: -webkit-linear-gradient(right, #fff 95%, #ddd 100%);
+  background-image: -moz-linear-gradient(right, #fff 95%, #ddd 100%);
+  background-image: -o-linear-gradient(right, #fff 95%, #ddd 100%);
+  background-image: -ms-linear-gradient(right, #fff 95%, #ddd 100%);
+}
+#book .turn-page {
+  background-color: white;
 }
 .new-page {
+  background: white !important;
+
   display: grid;
   grid-column-gap: 10px;
-  background: white !important;
 }
+
 .new-page > div {
   padding: 35px;
 }
-
+.book-papers {
+  background-image: url("./../img/pages-depth.png");
+  background-size: cover;
+  content: "";
+  width: 16px;
+  height: 609px;
+  position: fixed;
+  top: -2px;
+  right: -17px;
+  background-repeat: no-repeat;
+  transform: rotateY(180deg);
+  z-index: -1;
+  transition: 0.3s;
+}
+#book
+  > div
+  :not(#book > div.page-wrapper)
+  :not(#book > div.page)
+  :not(#book > div.shadow) {
+  background-color: white;
+}
